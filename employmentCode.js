@@ -83,7 +83,7 @@ function createDepartment() {
         .prompt({
             name: "department",
             type: "input",
-            message: "Which deparment would you like to add?",
+            message: "Which deparment would you like to add?"
 
 
 
@@ -108,23 +108,46 @@ function createRole() {
         .prompt({
             name: "role",
             type: "input",
-            message: "What employee role would you like to add?",
-
+            message: "What employee title would you like to add?",
 
 
         })
         .then(function (answer) {
             console.log(answer);
 
-            var query = ` INSERT INTO department (name)
+            var query = ` INSERT INTO role (title)
             VALUES ("${answer.role}")
             `;
-
-            connection.query(query, answer.department, function (err, res) {
+            connection.query(query, answer.role, function (err, res) {
                 if (err) throw err;
 
             });
+
+
+            inquirer
+                .prompt({
+
+                    name: "salary",
+                    type: "input",
+                    message: "What is the annual salary for this role?"
+
+
+                })
+                .then(function (answer) {
+                    console.log(answer);
+
+                    var query = ` INSERT INTO role (salary)
+            VALUES("${answer.salary}")
+            `;
+                    connection.query(query, answer.role, function (err, res) {
+                        if (err) throw err;
+
+                    });
+                });
+
         });
+
+
 
 }
 
@@ -209,22 +232,13 @@ function viewDepartment() {
                 connection.query(query, function (err, resDept) {
                     if (err) throw err;
                     console.log(resDept);
-                    // for (var i = 0; i < res.length; i++) {
-                    //     console.log(res[i].first_name, res[i].last_name, res[i].title, res[i].name);
 
-                    // }
 
                 });
 
             });
 
 
-
-        //         }
-
-        //         viewDepartment();
-
-        //     });
 
 
     });
