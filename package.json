@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/dchargois23/-Employee-Management-System#readme",
   "dependencies": {
+    "ascii-art-font": "^1.0.2",
+    "ascii-art-table": "^1.0.1",
     "console.table": "^0.10.0",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1"

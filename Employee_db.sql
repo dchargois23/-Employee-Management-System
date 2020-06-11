@@ -35,7 +35,7 @@ PRIMARY KEY
         (role_id)
 );
 
-        SELECT *
+         SELECT *
         FROM role;
 
         CREATE TABLE department
@@ -73,6 +73,8 @@ PRIMARY KEY
 
             INSERT INTO role
                 (role_id,title,salary,department_id)
-            ;
             VALUES
-            (
+                (1, "Sales Lead", 100000, 1),
+                (2, "Salesperson", 75000, 1),
+                (3, "Lead Engineer", 110000, 2),
+                (4, "Software Engineer",
